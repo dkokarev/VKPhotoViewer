@@ -63,7 +63,7 @@
             handler([photos copy], nil);
         }
         @catch (NSException *exception) {
-            handler(nil, [NSError errorWithAppErrorCode:AppErrorUnexpectedAlbumsResponseFormat]);
+            handler(nil, [NSError errorWithAppErrorCode:AppErrorUnexpectedPhotosResponseFormat]);
         }
     } errorBlock:^(NSError *error) {
         handler(nil, error);

@@ -72,22 +72,26 @@ static NSString * const VK_APP_ID = @"5242493";
     self.window.rootViewController = navController;
 }
 
+- (void)showAlertViewWithMessage:(NSString *)message {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    });
+}
+
 #pragma mark - VKSdkDelegate
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.error) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:result.error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+        [self showAlertViewWithMessage:result.error.localizedDescription];
         return;
     }
     [self showControllerWithClass:[AlbumsViewController class]];
 }
 
 - (void)vkSdkUserAuthorizationFailed {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Authorization failed" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    [self showAlertViewWithMessage:@"Authorization failed"];
 }
 
 - (void)vkSdkAccessTokenUpdated:(VKAccessToken *)newToken oldToken:(VKAccessToken *)oldToken {

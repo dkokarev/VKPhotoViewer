@@ -10,6 +10,7 @@
 
 typedef enum {
     AppErrorUnexpectedAlbumsResponseFormat = 1,
+    AppErrorUnexpectedPhotosResponseFormat
 } AppErrorCode;
 
 @interface NSError (Extensions)

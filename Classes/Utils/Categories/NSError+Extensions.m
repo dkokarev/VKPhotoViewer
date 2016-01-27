@@ -42,6 +42,9 @@ NSString * const AppErrorDomain = @"com.danny.vkphotoviewer.errordomain";
             case AppErrorUnexpectedAlbumsResponseFormat:
                 return @"Unexpected albums response format";
                 break;
+            case AppErrorUnexpectedPhotosResponseFormat:
+                return @"Unexpected photos response format";
+                break;
         }
     }
     return [self errorLocalizedDescription];
