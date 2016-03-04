@@ -21,21 +21,16 @@
     }
     VKRequest *request = [VKRequest requestWithMethod:@"photos.getAlbums" parameters:@{VK_API_OWNER_ID:[[VKSdk accessToken] userId], @"need_covers":@1}];
     [request executeWithResultBlock:^(VKResponse *response) {
-        @try {
-            NSArray *items = response.json[@"items"];
-            NSMutableArray *albums = [NSMutableArray array];
-            for (NSDictionary *dictionary in items) {
-                NSError *error;
-                Album *album = [MTLJSONAdapter modelOfClass:Album.class fromJSONDictionary:dictionary error:&error];
-                if (!error) {
-                    [albums addObject:album];
-                }
+        NSArray *items = response.json[@"items"];
+        NSMutableArray *albums = [NSMutableArray array];
+        for (NSDictionary *dictionary in items) {
+            NSError *error;
+            Album *album = [MTLJSONAdapter modelOfClass:Album.class fromJSONDictionary:dictionary error:&error];
+            if (!error) {
+                [albums addObject:album];
             }
-            handler([albums copy], nil);
         }
-        @catch (NSException *exception) {
-            handler(nil, [NSError errorWithAppErrorCode:AppErrorUnexpectedAlbumsResponseFormat]);
-        }
+        handler([albums copy], nil);
     } errorBlock:^(NSError *error) {
         handler(nil, error);
     }];
@@ -50,21 +45,16 @@
                                                                                  @"album_id":album.albumId,
                                                                                  @"photo_sizes":@1}];
     [request executeWithResultBlock:^(VKResponse *response) {
-        @try {
-            NSArray *items = response.json[@"items"];
-            NSMutableArray *photos = [NSMutableArray array];
-            for (NSDictionary *dictionary in items) {
-                NSError *error;
-                Photo *photo = [MTLJSONAdapter modelOfClass:Photo.class fromJSONDictionary:dictionary error:&error];
-                if (!error) {
-                    [photos addObject:photo];
-                }
+        NSArray *items = response.json[@"items"];
+        NSMutableArray *photos = [NSMutableArray array];
+        for (NSDictionary *dictionary in items) {
+            NSError *error;
+            Photo *photo = [MTLJSONAdapter modelOfClass:Photo.class fromJSONDictionary:dictionary error:&error];
+            if (!error) {
+                [photos addObject:photo];
             }
-            handler([photos copy], nil);
         }
-        @catch (NSException *exception) {
-            handler(nil, [NSError errorWithAppErrorCode:AppErrorUnexpectedPhotosResponseFormat]);
-        }
+        handler([photos copy], nil);
     } errorBlock:^(NSError *error) {
         handler(nil, error);
     }];

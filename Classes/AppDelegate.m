@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <VK-ios-sdk/VKSdk.h>
+#import "UIAlertController+Utils.h"
 #import "AlbumsViewController.h"
 #import "LoginViewController.h"
 
@@ -72,26 +73,18 @@ static NSString * const VK_APP_ID = @"5242493";
     self.window.rootViewController = navController;
 }
 
-- (void)showAlertViewWithMessage:(NSString *)message {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-    });
-}
-
 #pragma mark - VKSdkDelegate
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.error) {
-        [self showAlertViewWithMessage:result.error.localizedDescription];
+        [UIAlertController presentWithMessage:result.error.localizedDescription inController:self.window.rootViewController];
         return;
     }
     [self showControllerWithClass:[AlbumsViewController class]];
 }
 
 - (void)vkSdkUserAuthorizationFailed {
-    [self showAlertViewWithMessage:@"Authorization failed"];
+    [UIAlertController presentWithMessage:@"Authorization failed" inController:self.window.rootViewController];
 }
 
 - (void)vkSdkAccessTokenUpdated:(VKAccessToken *)newToken oldToken:(VKAccessToken *)oldToken {

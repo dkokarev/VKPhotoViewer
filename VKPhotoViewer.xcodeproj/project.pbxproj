@@ -27,6 +27,7 @@
 		30461DF41C56F8C3003B070B /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30461DF21C56F8C3003B070B /* PhotoCell.m */; };
 		30461DF51C56F8C3003B070B /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30461DF31C56F8C3003B070B /* PhotoCell.xib */; };
 		30461DF81C56F949003B070B /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 30461DF71C56F949003B070B /* Photo.m */; };
+		307372B31C89DAAC00083601 /* UIAlertController+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 307372B11C89DAAC00083601 /* UIAlertController+Utils.m */; };
 		307D909F1C57F59000D86075 /* VKZoomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 307D909E1C57F59000D86075 /* VKZoomImageView.m */; };
 		3084F0DA1C5836710076E3A6 /* NSError+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3084F0D91C5836710076E3A6 /* NSError+Extensions.m */; };
 		30FAEB651C57C4CB00FF4948 /* PhotoViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FAEB631C57C4CB00FF4948 /* PhotoViewerViewController.m */; };
@@ -68,6 +69,8 @@
 		30461DF31C56F8C3003B070B /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		30461DF61C56F949003B070B /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		30461DF71C56F949003B070B /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		307372B11C89DAAC00083601 /* UIAlertController+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Utils.m"; sourceTree = "<group>"; };
+		307372B21C89DAAC00083601 /* UIAlertController+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Utils.h"; sourceTree = "<group>"; };
 		307D909D1C57F59000D86075 /* VKZoomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKZoomImageView.h; sourceTree = "<group>"; };
 		307D909E1C57F59000D86075 /* VKZoomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKZoomImageView.m; sourceTree = "<group>"; };
 		3084F0D81C5836710076E3A6 /* NSError+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+Extensions.h"; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 		3084F0D71C5836710076E3A6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				307372B21C89DAAC00083601 /* UIAlertController+Utils.h */,
+				307372B11C89DAAC00083601 /* UIAlertController+Utils.m */,
 				3084F0D81C5836710076E3A6 /* NSError+Extensions.h */,
 				3084F0D91C5836710076E3A6 /* NSError+Extensions.m */,
 			);
@@ -396,6 +401,7 @@
 				30461DA81C56BD83003B070B /* AppDelegate.m in Sources */,
 				30461DF81C56F949003B070B /* Photo.m in Sources */,
 				30461DD81C56CEE7003B070B /* LoginViewController.m in Sources */,
+				307372B31C89DAAC00083601 /* UIAlertController+Utils.m in Sources */,
 				30461DEA1C56ED12003B070B /* VKImageView.m in Sources */,
 				30FAEB651C57C4CB00FF4948 /* PhotoViewerViewController.m in Sources */,
 				307D909F1C57F59000D86075 /* VKZoomImageView.m in Sources */,
